@@ -1,0 +1,9 @@
+@stackline/combine-source-map is an independent continuation of
+combine-source-map, originally created by Thorsten Lorenz and contributors.
+
+The original project is available at:
+https://github.com/thlorenz/combine-source-map
+
+The upstream source and this continuation are distributed under the MIT
+License included in LICENSE. Stackline is not affiliated with or endorsed by
+the original maintainers.

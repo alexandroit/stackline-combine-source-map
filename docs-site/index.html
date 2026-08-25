@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>@stackline/combine-source-map - Combine Source Map v3 files</title>
+    <meta name="description" content="Combine generated JavaScript files and embedded Source Map v3 data with a maintained combine-source-map-compatible synchronous API.">
+    <meta name="keywords" content="combine source map, Source Map v3, JavaScript bundle, Browserify, TypeScript, browser bundler, Stackline, npm">
+    <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
+    <link rel="canonical" href="https://alexandro.net/docs/vanilla/combine-source-map/">
+    <link rel="alternate" type="text/plain" href="./llms.txt" title="LLM summary">
+    <link rel="alternate" type="text/plain" href="./llms-full.txt" title="Full LLM reference">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="@stackline/combine-source-map">
+    <meta property="og:description" content="A maintained, typed source-map combiner for modern build pipelines.">
+    <meta property="og:url" content="https://alexandro.net/docs/vanilla/combine-source-map/">
+    <meta property="og:image" content="https://alexandro.net/docs/vanilla/combine-source-map/assets/combine-source-map-flow.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="@stackline/combine-source-map">
+    <meta name="twitter:description" content="Combine generated files and inspect the final Source Map v3 output.">
+    <meta name="twitter:image" content="https://alexandro.net/docs/vanilla/combine-source-map/assets/combine-source-map-flow.png">
+    <meta name="theme-color" content="#246b4b">
+    <link rel="stylesheet" href="./styles.css">
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "SoftwareSourceCode",
+        "name": "@stackline/combine-source-map",
+        "version": "{{PACKAGE_VERSION}}",
+        "description": "A maintained combine-source-map-compatible Source Map v3 combiner.",
+        "codeRepository": "https://github.com/alexandroit/stackline-combine-source-map",
+        "downloadUrl": "https://www.npmjs.com/package/@stackline/combine-source-map",
+        "license": "https://opensource.org/license/mit",
+        "programmingLanguage": ["JavaScript", "TypeScript"],
+        "runtimePlatform": ["Node.js", "Web browser"],
+        "author": { "@type": "Person", "name": "Alexandro Paixao Marques", "url": "https://github.com/alexandroit" }
+      }
+    </script>
+    <script defer src="./package.js"></script>
+    <script defer src="./analytics.js"></script>
+    <script defer src="./app.js"></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#playground">Skip to combiner</a>
+    <header class="site-header">
+      <a class="brand" href="./" aria-label="@stackline/combine-source-map documentation home"><span class="brand-mark" aria-hidden="true">S</span><span>@stackline/combine-source-map</span></a>
+      <nav aria-label="Primary navigation"><a href="#playground">Combiner</a><a href="#api">API</a><a href="https://github.com/alexandroit/stackline-combine-source-map">GitHub</a><a href="https://www.npmjs.com/package/@stackline/combine-source-map">npm</a></nav>
+    </header>
+
+    <main>
+      <section class="product-intro" aria-labelledby="page-title"><div class="intro-content">
+        <p class="eyebrow">Source Map v3 composition</p><h1 id="page-title">@stackline/combine-source-map</h1>
+        <p>Combine generated files and embedded source maps through the familiar synchronous API, modern mapping traversal, portable paths, and first-party types.</p>
+        <div class="install-row"><code>npm install @stackline/combine-source-map</code><button class="compact-button" type="button" data-copy="npm install @stackline/combine-source-map">Copy</button></div>
+        <div class="release-line" aria-label="Compatibility summary"><span>v{{PACKAGE_VERSION}}</span><span>Synchronous API</span><span>Node 12+</span><span>TypeScript 3.9-7.0</span></div>
+      </div></section>
+
+      <section class="tool-band" id="playground" aria-labelledby="tool-title"><div class="section-inner wide">
+        <div class="section-heading"><div><p class="eyebrow">Runs the production browser bundle</p><h2 id="tool-title">Source-map combiner</h2></div><button class="icon-button" id="reset-button" type="button" title="Reset combiner" aria-label="Reset combiner">&#8635;</button></div>
+        <div class="control-bar">
+          <label><span>Output file</span><input id="output-file" type="text" value="bundle.js" autocomplete="off"></label>
+          <label><span>Source root</span><input id="source-root" type="text" value="" placeholder="optional" autocomplete="off"></label>
+          <label><span>First source file</span><input id="first-file" type="text" value="src/one.js" autocomplete="off"></label>
+          <label><span>Second source file</span><input id="second-file" type="text" value="src/two.js" autocomplete="off"></label>
+          <label class="number-control"><span>Second line offset</span><input id="line-offset" type="number" min="0" step="1" value="2"></label>
+          <button class="primary-button" id="combine-button" type="button">Combine</button>
+        </div>
+        <div class="sources-grid">
+          <section class="editor-panel"><header><h3>First generated file</h3><span>JavaScript</span></header><textarea id="first-source" spellcheck="false" aria-label="First generated source"></textarea></section>
+          <section class="editor-panel"><header><h3>Second generated file</h3><span>JavaScript</span></header><textarea id="second-source" spellcheck="false" aria-label="Second generated source"></textarea></section>
+        </div>
+        <section class="output-panel" aria-labelledby="output-label">
+          <header><h3 id="output-label">Combined output</h3><button class="text-button" id="copy-output-button" type="button">Copy</button></header>
+          <div class="segmented-control" role="group" aria-label="Output format"><button type="button" data-output="json" aria-pressed="true">Map JSON</button><button type="button" data-output="comment" aria-pressed="false">Inline comment</button><button type="button" data-output="base64" aria-pressed="false">Base64</button></div>
+          <pre id="result-output" tabindex="0" aria-live="polite"></pre>
+        </section>
+        <div class="status-bar" role="status" aria-live="polite"><span class="status-indicator" id="status-indicator" aria-hidden="true"></span><span id="status-text">Ready</span><span class="status-separator" aria-hidden="true"></span><span id="source-count">2 source files</span><span class="status-separator" aria-hidden="true"></span><span id="mapping-count">0 mapped sources</span></div>
+      </div></section>
+
+      <section class="content-band" aria-labelledby="migration-title"><div class="section-inner content-grid"><div><p class="eyebrow">Lowest-change migration</p><h2 id="migration-title">Keep the original import name</h2><p>Use an npm alias when existing build code requires <code>combine-source-map</code>.</p></div><div class="code-surface"><pre><code>npm install combine-source-map@npm:@stackline/combine-source-map</code></pre><pre><code>const combine = require('combine-source-map');</code></pre></div></div></section>
+
+      <section class="content-band muted" id="api" aria-labelledby="api-title"><div class="section-inner">
+        <div class="section-heading"><div><p class="eyebrow">Public contract</p><h2 id="api-title">Small synchronous API</h2></div><a class="inline-link" href="https://github.com/alexandroit/stackline-combine-source-map/blob/main/README.md#api">Full reference</a></div>
+        <div class="api-table-wrapper"><table><thead><tr><th>API</th><th>Purpose</th><th>Return</th></tr></thead><tbody>
+          <tr><td><code>create(file?, sourceRoot?)</code></td><td>Create a combiner</td><td>Combiner</td></tr>
+          <tr><td><code>addFile(options, offset?)</code></td><td>Add or rebase one generated file</td><td>Combiner</td></tr>
+          <tr><td><code>base64()</code></td><td>Encode the combined map</td><td>String</td></tr>
+          <tr><td><code>comment()</code></td><td>Create an inline sourceMappingURL</td><td>String</td></tr>
+          <tr><td><code>removeComments(source)</code></td><td>Remove inline and external map comments</td><td>String</td></tr>
+        </tbody></table></div>
+      </div></section>
+
+      <section class="content-band" aria-labelledby="proof-title"><div class="section-inner proof-grid"><div><p class="eyebrow">Release evidence</p><h2 id="proof-title">Composition is measured</h2></div><dl class="proof-list"><div><dt>13</dt><dd>focused regression tests</dd></div><div><dt>5</dt><dd>differential upstream scenarios</dd></div><div><dt>99%+</dt><dd>line coverage</dd></div><div><dt>12-24</dt><dd>tested Node.js range</dd></div></dl></div></section>
+
+      <section class="resource-band" aria-labelledby="resources-title"><div class="section-inner resource-grid"><div><p class="eyebrow">Machine-readable documentation</p><h2 id="resources-title">AI and crawler resources</h2><p>#Stackline #SourceMaps #JavaScript #OpenSource #NPM #AIReadyDocs</p></div><nav aria-label="Documentation resources"><a href="./llms.txt">llms.txt</a><a href="./llms-full.txt">llms-full.txt</a><a href="https://alexandro.net/sitemap.xml">Public sitemap</a></nav></div></section>
+    </main>
+    <footer><div><strong>@stackline/combine-source-map</strong><span>MIT licensed. Independent and not affiliated with the upstream maintainers.</span></div><nav aria-label="Footer navigation"><a href="https://alexandro.net/docs/open-source/">All packages</a><a href="./guides/migration.md">Migration</a><a href="https://github.com/alexandroit/stackline-combine-source-map/blob/main/SECURITY.md">Security</a><a href="https://github.com/alexandroit/stackline-combine-source-map/blob/main/CHANGELOG.md">Changelog</a></nav></footer>
+  </body>
+</html>

@@ -1,0 +1,12 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><style>
+*{box-sizing:border-box}html,body{height:100%;margin:0;width:100%}body{background:#16251f;color:#eff8f2;font-family:Inter,Arial,sans-serif;overflow:hidden}.frame{align-items:center;display:grid;gap:42px;grid-template-columns:1fr 160px 1fr;height:100%;padding:70px;position:relative}.inputs{display:grid;gap:20px}.panel{background:#20382e;border:2px solid #557a69;border-radius:8px;padding:22px}.label{color:#71d3a5;font-size:18px;font-weight:800;margin-bottom:14px}.code{font-family:monospace;font-size:20px;line-height:1.6}.offset{color:#efb83f}.join{align-items:center;display:grid;justify-items:center}.join span{background:#bb5945;border-radius:50%;font-size:42px;font-weight:700;height:84px;line-height:78px;text-align:center;width:84px}.map{min-height:375px}.json{font-family:monospace;font-size:18px;line-height:1.65;white-space:pre}.accent{color:#e98570}.title{bottom:28px;color:#abc2b7;font-size:17px;left:70px;position:absolute}
+</style></head><body><div class="frame"><div class="inputs"><section class="panel"><div class="label">SOURCE ONE</div><div class="code">const one = 1;</div></section><section class="panel"><div class="label">SOURCE TWO <span class="offset">+2 lines</span></div><div class="code">const two = 2;</div></section></div><div class="join"><span>+</span></div><section class="panel map"><div class="label">COMBINED SOURCE MAP</div><div class="json">{
+  "version": <span class="accent">3</span>,
+  "file": "bundle.js",
+  "sources": [
+    "src/one.js",
+    "src/two.js"
+  ],
+  "mappings": "AAAA;AACA;;ACDA"
+}</div></section><div class="title">@stackline/combine-source-map · synchronous composition</div></div></body></html>

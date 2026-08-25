@@ -1,0 +1,127 @@
+{
+  "name": "@stackline/combine-source-map",
+  "version": "1.0.1",
+  "description": "Maintained combine-source-map-compatible combiner with synchronous APIs, modern mappings, and defensive parsing",
+  "keywords": [
+    "combine-source-map",
+    "source-map",
+    "sourcemap",
+    "bundle",
+    "browserify",
+    "typescript",
+    "commonjs",
+    "esm",
+    "security",
+    "stackline"
+  ],
+  "license": "MIT",
+  "author": {
+    "name": "Alexandro Paixao Marques",
+    "url": "https://github.com/alexandroit"
+  },
+  "homepage": "https://alexandro.net/docs/vanilla/combine-source-map/",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alexandroit/stackline-combine-source-map.git"
+  },
+  "bugs": {
+    "url": "https://github.com/alexandroit/stackline-combine-source-map/issues"
+  },
+  "type": "commonjs",
+  "main": "./index.js",
+  "browser": {
+    "./index.js": "./dist/browser.cjs",
+    "./index.mjs": "./dist/browser.mjs"
+  },
+  "types": "./index.d.ts",
+  "exports": {
+    ".": {
+      "browser": {
+        "import": {
+          "types": "./index.d.mts",
+          "default": "./dist/browser.mjs"
+        },
+        "require": {
+          "types": "./index.d.cts",
+          "default": "./dist/browser.cjs"
+        },
+        "default": "./dist/browser.cjs"
+      },
+      "import": {
+        "types": "./index.d.mts",
+        "default": "./index.mjs"
+      },
+      "require": {
+        "types": "./index.d.ts",
+        "default": "./index.js"
+      },
+      "default": "./index.js"
+    }
+  },
+  "sideEffects": false,
+  "engines": {
+    "node": ">=12"
+  },
+  "files": [
+    "dist",
+    "lib",
+    "index.js",
+    "index.mjs",
+    "index.d.ts",
+    "index.d.cts",
+    "index.d.mts",
+    "examples",
+    "CHANGELOG.md",
+    "COMPATIBILITY_CONTRACT.md",
+    "CONTRIBUTING.md",
+    "LICENSE",
+    "MIGRATION.md",
+    "NOTICE",
+    "README.md",
+    "SECURITY.md",
+    "THIRD_PARTY_LICENSES.md"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "lint": "eslint .",
+    "test": "npm run build && npm run lint && npm run test:coverage && npm run test:compatibility && npm run test:redos && npm run test:types && npm run test:esm && npm run test:browser && npm run test:examples && npm run test:package && npm run test:install && npm run test:docs",
+    "test:unit": "node test/run.js",
+    "test:coverage": "c8 --all --include=index.js --include=lib/**/*.js --check-coverage --lines 95 --functions 95 --statements 95 --branches 85 node test/run.js",
+    "test:compatibility": "node test/compatibility.js",
+    "test:redos": "node scripts/check-redos.mjs",
+    "test:types": "tsc -p test/types/tsconfig.json",
+    "test:esm": "node test/esm.mjs",
+    "test:browser": "node scripts/check-browser.mjs",
+    "test:examples": "node examples/basic.js",
+    "test:package": "publint",
+    "test:attw": "attw --pack .",
+    "test:install": "node scripts/smoke-install.mjs",
+    "test:docs": "npm run docs:build && node scripts/check-docs.mjs",
+    "docs:build": "npm run build && node scripts/build-docs.mjs",
+    "docs:serve": "node scripts/serve-docs.mjs",
+    "test:node-matrix": "node scripts/check-node-matrix.mjs",
+    "test:typescript-matrix": "node scripts/check-typescript-matrix.mjs",
+    "audit:dependencies": "npm audit --audit-level=low",
+    "audit:signatures": "npm audit signatures",
+    "verify:prepack": "npm run build && npm run lint && npm run test:coverage && npm run test:compatibility && npm run test:redos && npm run test:types && npm run test:browser && npm run test:package",
+    "prepack": "npm run verify:prepack"
+  },
+  "dependencies": {
+    "@jridgewell/resolve-uri": "^3.1.2",
+    "@jridgewell/trace-mapping": "^0.3.31",
+    "convert-source-map": "npm:@stackline/convert-source-map@^1.0.0",
+    "inline-source-map": "npm:@stackline/inline-source-map@^1.0.0"
+  },
+  "devDependencies": {
+    "@arethetypeswrong/cli": "0.18.5",
+    "c8": "12.0.0",
+    "combine-source-map": "0.8.0",
+    "esbuild": "0.28.2",
+    "eslint": "10.9.1",
+    "publint": "0.3.24",
+    "typescript": "7.0.2"
+  }
+}

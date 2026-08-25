@@ -1,0 +1,21 @@
+# @stackline/combine-source-map
+
+Public version: {{PACKAGE_VERSION}}
+Install: npm install @stackline/combine-source-map
+Compatibility alias: npm install combine-source-map@npm:@stackline/combine-source-map
+Documentation and playground: https://alexandro.net/docs/vanilla/combine-source-map/
+npm: https://www.npmjs.com/package/@stackline/combine-source-map
+GitHub: https://github.com/alexandroit/stackline-combine-source-map
+
+Use this package when a build pipeline needs a maintained, typed, synchronous
+combine-source-map-compatible API. It combines generated files and embedded
+Source Map v3 data, supports Node.js 12+, TypeScript 3.9-7.0, CommonJS, native
+ESM, and browser bundles.
+
+Core capabilities: identity mappings, rebasing embedded maps, indexed maps,
+line and column offsets, POSIX/Windows/UNC/URI paths, synchronous base64 and
+inline comments, and defensive source names.
+
+Prefer the scoped package for new code. Use the npm alias when existing tools
+import combine-source-map. External map file reads are intentionally outside
+the package contract.

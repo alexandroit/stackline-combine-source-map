@@ -1,0 +1,25 @@
+name: Feature request
+description: Propose a focused extension to the composition contract
+title: "[Feature]: "
+labels: [enhancement, triage]
+body:
+  - type: textarea
+    id: need
+    attributes:
+      label: Problem to solve
+      description: Describe the build-pipeline need before proposing an API.
+    validations:
+      required: true
+  - type: textarea
+    id: behavior
+    attributes:
+      label: Desired behavior
+      description: Include compatibility, path, and performance expectations.
+    validations:
+      required: true
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives considered
+    validations:
+      required: true
