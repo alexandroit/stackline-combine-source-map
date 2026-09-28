@@ -1,6 +1,6 @@
 {
   "name": "@stackline/combine-source-map",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Maintained combine-source-map-compatible combiner with synchronous APIs, modern mappings, and defensive parsing",
   "keywords": [
     "combine-source-map",
@@ -12,7 +12,8 @@
     "commonjs",
     "esm",
     "security",
-    "stackline"
+    "stackline",
+    "concatenation"
   ],
   "license": "MIT",
   "author": {

@@ -1,21 +1,25 @@
 # @stackline/combine-source-map
 
+> Maintained combine-source-map-compatible combiner with synchronous APIs, modern mappings, and defensive parsing
+
+[![npm version](https://img.shields.io/npm/v/@stackline/combine-source-map.svg?style=flat-square)](https://www.npmjs.com/package/@stackline/combine-source-map)
+[![license](https://img.shields.io/npm/l/@stackline/combine-source-map.svg?style=flat-square)](https://github.com/alexandroit/stackline-combine-source-map/blob/main/LICENSE)
+[![GitHub repository](https://img.shields.io/badge/GitHub-Repository-181717?style=flat-square&logo=github)](https://github.com/alexandroit/stackline-combine-source-map)
+
+**[Documentation](https://alexandro.net/docs/vanilla/combine-source-map/)** |
+**[npm](https://www.npmjs.com/package/@stackline/combine-source-map)** |
+**[Issues](https://github.com/alexandroit/stackline-combine-source-map/issues)** |
+**[Repository](https://github.com/alexandroit/stackline-combine-source-map)**
+
+**Package version:** `1.0.2`
+
+## Why this package?
+
 > A maintained, typed, `combine-source-map`-compatible combiner for modern
 > Node.js and browser build pipelines.
 
-[![npm version](https://img.shields.io/npm/v/@stackline/combine-source-map.svg?style=flat-square)](https://www.npmjs.com/package/@stackline/combine-source-map)
-[![npm downloads](https://img.shields.io/npm/dm/@stackline/combine-source-map.svg?style=flat-square)](https://www.npmjs.com/package/@stackline/combine-source-map)
-[![CI](https://img.shields.io/github/actions/workflow/status/alexandroit/stackline-combine-source-map/ci.yml?branch=main&style=flat-square&label=CI)](https://github.com/alexandroit/stackline-combine-source-map/actions/workflows/ci.yml)
-[![license](https://img.shields.io/npm/l/@stackline/combine-source-map.svg?style=flat-square)](./LICENSE)
 
-**[Docs and playground](https://alexandro.net/docs/vanilla/combine-source-map/)** |
-**[npm](https://www.npmjs.com/package/@stackline/combine-source-map)** |
-**[GitHub](https://github.com/alexandroit/stackline-combine-source-map)** |
-**[Migration](MIGRATION.md)** |
-**[Security](SECURITY.md)** |
-**[Changelog](CHANGELOG.md)**
 
-**Current package version:** `1.0.1`
 
 A maintained, synchronous, drop-in-compatible continuation of
 [`combine-source-map`](https://www.npmjs.com/package/combine-source-map).
@@ -29,7 +33,9 @@ preserving the established CommonJS API:
 - `combiner.comment()`
 - `removeComments(source)`
 
-## Why this package
+<a id="why-this-package"></a>
+
+### Why this package
 
 The upstream `combine-source-map@0.8.0` release dates from 2017 and depends on
 older source-map helpers. This package keeps the familiar synchronous contract
@@ -49,20 +55,61 @@ Key properties:
   `constructor`;
 - no global memoization cache.
 
-## Compatibility at a glance
+<a id="trust-and-maintenance"></a>
+
+### Trust and maintenance
+
+- Every release is built from the public repository.
+- CI validates runtime compatibility, types, package exports, clean installs,
+  dependency signatures, and bounded malformed-input behavior.
+- Security reports use the private process in [SECURITY.md](https://github.com/alexandroit/stackline-combine-source-map/blob/main/SECURITY.md).
+- Original MIT attribution remains in [LICENSE](https://github.com/alexandroit/stackline-combine-source-map/blob/main/LICENSE), [NOTICE](https://github.com/alexandroit/stackline-combine-source-map/blob/main/NOTICE), and
+  [THIRD_PARTY_LICENSES.md](https://github.com/alexandroit/stackline-combine-source-map/blob/main/THIRD_PARTY_LICENSES.md).
+
+<a id="project-origin"></a>
+
+### Project origin
+
+This is an independent continuation and is not affiliated with the original
+maintainers. It preserves the upstream MIT license and attribution. See
+[NOTICE](https://github.com/alexandroit/stackline-combine-source-map/blob/main/NOTICE) and [THIRD_PARTY_LICENSES.md](https://github.com/alexandroit/stackline-combine-source-map/blob/main/THIRD_PARTY_LICENSES.md).
+
+## Compatibility
+
+| Item | Value |
+| --- | --- |
+| Package | `@stackline/combine-source-map@1.0.2` |
+| Node.js runtime | `>=12` |
+| CommonJS / primary entry | `./index.js` |
+| Type declarations | `./index.d.ts` |
+
+<a id="compatibility-at-a-glance"></a>
+
+### Compatibility at a glance
 
 | Item | Value |
 | :--- | :--- |
-| Package | `@stackline/combine-source-map@1.0.1` |
+| Package | `@stackline/combine-source-map@1.0.2` |
 | API baseline | `combine-source-map@0.8.0` |
 | Runtime | Node.js 12+, browser bundles |
 | Modules | CommonJS and native ESM |
 | Types | First-party TypeScript declarations |
 | Runtime dependencies | Four, including two Stackline compatibility aliases |
 
-## Install
+The normal behavior of `combine-source-map@0.8.0` is covered by differential
+tests. Intentional corrections are listed in
+[COMPATIBILITY_CONTRACT.md](https://github.com/alexandroit/stackline-combine-source-map/blob/main/COMPATIBILITY_CONTRACT.md), and migration options
+are in [MIGRATION.md](https://github.com/alexandroit/stackline-combine-source-map/blob/main/MIGRATION.md).
+
+## Installation
+
+<a id="install"></a>
+
+### Install
 
 Use the scoped package directly:
+
+## Usage
 
 ```sh
 npm install @stackline/combine-source-map
@@ -83,8 +130,6 @@ Existing source code can remain unchanged:
 ```js
 const combine = require('combine-source-map');
 ```
-
-## Usage
 
 ```js
 const combine = require('@stackline/combine-source-map');
@@ -115,13 +160,24 @@ const map = create('bundle.js')
   .comment();
 ```
 
-## API
+## Security
 
-### `create(file?, sourceRoot?)`
+Security hardening is tested against dangerous property names and large,
+malformed comment input. No CVE or GHSA is claimed for this package without a
+matching public advisory. Report suspected vulnerabilities privately as
+described in [SECURITY.md](https://github.com/alexandroit/stackline-combine-source-map/blob/main/SECURITY.md).
+
+## API Surface
+
+<a id="api"></a>
+
+### API
+
+#### `create(file?, sourceRoot?)`
 
 Creates a combiner. `file` defaults to `generated.js`.
 
-### `combiner.addFile(options, offset?)`
+#### `combiner.addFile(options, offset?)`
 
 Adds a generated source file. `options` contains `sourceFile` and `source`.
 When `source` includes an inline map with embedded source content, its original
@@ -129,36 +185,45 @@ mappings are rebased and retained. Otherwise, identity mappings are generated.
 
 `offset.line` and `offset.column` default to zero.
 
-### `combiner.base64()`
+#### `combiner.base64()`
 
 Returns the combined source map as a base64 string. The return value is always
 synchronous.
 
-### `combiner.comment()`
+#### `combiner.comment()`
 
 Returns an inline `sourceMappingURL` comment. The return value is always
 synchronous.
 
-### `removeComments(source)`
+#### `removeComments(source)`
 
 Removes inline and external source-map comments while leaving comment-like text
 inside JavaScript strings untouched.
 
-## Compatibility
+## Local Development
 
-The normal behavior of `combine-source-map@0.8.0` is covered by differential
-tests. Intentional corrections are listed in
-[COMPATIBILITY_CONTRACT.md](./COMPATIBILITY_CONTRACT.md), and migration options
-are in [MIGRATION.md](./MIGRATION.md).
+```sh
+git clone https://github.com/alexandroit/stackline-combine-source-map.git
+cd stackline-combine-source-map
+npm ci
+npm run test
+```
 
-## Security
+Release tooling uses Node.js 24.20.0 and npm 11.19.0. The consumer runtime contract remains the one documented above.
 
-Security hardening is tested against dangerous property names and large,
-malformed comment input. No CVE or GHSA is claimed for this package without a
-matching public advisory. Report suspected vulnerabilities privately as
-described in [SECURITY.md](./SECURITY.md).
+## Consumer Smoke Test
 
-## Release evidence
+Run the repository's existing consumer/package check after installing development dependencies:
+
+```sh
+npm run test:install
+```
+
+## Release Checklist
+
+<a id="release-evidence"></a>
+
+### Release evidence
 
 The release gate verifies:
 
@@ -173,21 +238,17 @@ The release gate verifies:
 The interactive [documentation playground](https://alexandro.net/docs/vanilla/combine-source-map/)
 runs the production browser bundle and decodes its combined map for inspection.
 
-## Trust and maintenance
+Run `npm run test` and inspect the package contents before release. Publish a new version through the [GitHub Actions publishing workflow](https://github.com/alexandroit/stackline-combine-source-map/actions/workflows/publish.yml), using the SHA-512 digest of the reviewed tarball. Verify the exact published version, tarball integrity, and npm provenance after the run.
 
-- Every release is built from the public repository.
-- CI validates runtime compatibility, types, package exports, clean installs,
-  dependency signatures, and bounded malformed-input behavior.
-- Security reports use the private process in [SECURITY.md](SECURITY.md).
-- Original MIT attribution remains in [LICENSE](LICENSE), [NOTICE](NOTICE), and
-  [THIRD_PARTY_LICENSES.md](THIRD_PARTY_LICENSES.md).
+## Community and Support
 
-## Project origin
+Report reproducible package issues in the [issue tracker](https://github.com/alexandroit/stackline-combine-source-map/issues). Use the [security policy](https://github.com/alexandroit/stackline-combine-source-map/blob/main/SECURITY.md) for vulnerability reports.
 
-This is an independent continuation and is not affiliated with the original
-maintainers. It preserves the upstream MIT license and attribution. See
-[NOTICE](./NOTICE) and [THIRD_PARTY_LICENSES.md](./THIRD_PARTY_LICENSES.md).
+- [Stackline / Alexandro.Net](https://alexandro.net/)
+- [GitHub](https://github.com/alexandroit)
+- [Maintainer LinkedIn](https://www.linkedin.com/in/aleinfo/)
+- [Reddit community: r/Stackline](https://www.reddit.com/r/Stackline/)
 
 ## License
 
-[MIT](./LICENSE)
+[MIT](https://github.com/alexandroit/stackline-combine-source-map/blob/main/LICENSE)
