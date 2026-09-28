@@ -31,7 +31,7 @@ Equivalent `package.json` entry:
 ```json
 {
   "dependencies": {
-    "combine-source-map": "npm:@stackline/combine-source-map@^1.0.0"
+    "combine-source-map": "npm:@stackline/combine-source-map@^1.0.2"
   }
 }
 ```
