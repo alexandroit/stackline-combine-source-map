@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.0.3 - 2026-09-29
+
+- Replace `@jridgewell/resolve-uri` with exact alias `npm:@stackline/resolve-uri@1.0.0`, preserving existing import names.
+- Replace `@jridgewell/trace-mapping` with exact alias `npm:@stackline/trace-mapping@1.0.0`, preserving existing import names.
+- Preserve the public API and existing runtime/compiler compatibility.
+
 ## [1.0.2] - 2026-09-28
 
 - Organize package documentation, preserve API and migration examples, and add Stackline community links.

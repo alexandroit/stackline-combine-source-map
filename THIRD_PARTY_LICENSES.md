@@ -8,8 +8,8 @@ resolved graph of a given installation.
 | --- | --- | --- |
 | `@stackline/convert-source-map` | Inline map parsing and comment scanning | MIT |
 | `@stackline/inline-source-map` | Combined map generation and base64 output | MIT |
-| `@jridgewell/trace-mapping` | Synchronous Source Map v3 traversal | MIT |
-| `@jridgewell/resolve-uri` | URI and cross-platform path resolution | MIT |
+| `@stackline/trace-mapping@1.0.0` (alias `@jridgewell/trace-mapping`) | Synchronous Source Map v3 traversal | MIT |
+| `@stackline/resolve-uri@1.0.0` (alias `@jridgewell/resolve-uri`) | URI and cross-platform path resolution | MIT |
 | `@jridgewell/sourcemap-codec` | Transitive VLQ codec | MIT |
 | `source-map` | Generator used by `@stackline/inline-source-map` | BSD-3-Clause |
 

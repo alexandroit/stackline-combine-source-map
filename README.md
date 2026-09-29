@@ -11,7 +11,7 @@
 **[Issues](https://github.com/alexandroit/stackline-combine-source-map/issues)** |
 **[Repository](https://github.com/alexandroit/stackline-combine-source-map)**
 
-**Package version:** `1.0.2`
+**Package version:** `1.0.3`
 
 ## Why this package?
 
@@ -78,7 +78,7 @@ maintainers. It preserves the upstream MIT license and attribution. See
 
 | Item | Value |
 | --- | --- |
-| Package | `@stackline/combine-source-map@1.0.2` |
+| Package | `@stackline/combine-source-map@1.0.3` |
 | Node.js runtime | `>=12` |
 | CommonJS / primary entry | `./index.js` |
 | Type declarations | `./index.d.ts` |
@@ -89,7 +89,7 @@ maintainers. It preserves the upstream MIT license and attribution. See
 
 | Item | Value |
 | :--- | :--- |
-| Package | `@stackline/combine-source-map@1.0.2` |
+| Package | `@stackline/combine-source-map@1.0.3` |
 | API baseline | `combine-source-map@0.8.0` |
 | Runtime | Node.js 12+, browser bundles |
 | Modules | CommonJS and native ESM |

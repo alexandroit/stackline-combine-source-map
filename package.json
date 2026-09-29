@@ -1,6 +1,6 @@
 {
   "name": "@stackline/combine-source-map",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Maintained combine-source-map-compatible combiner with synchronous APIs, modern mappings, and defensive parsing",
   "keywords": [
     "combine-source-map",
@@ -111,8 +111,8 @@
     "prepack": "npm run verify:prepack"
   },
   "dependencies": {
-    "@jridgewell/resolve-uri": "^3.1.2",
-    "@jridgewell/trace-mapping": "^0.3.31",
+    "@jridgewell/resolve-uri": "npm:@stackline/resolve-uri@1.0.0",
+    "@jridgewell/trace-mapping": "npm:@stackline/trace-mapping@1.0.0",
     "convert-source-map": "npm:@stackline/convert-source-map@^1.0.0",
     "inline-source-map": "npm:@stackline/inline-source-map@^1.0.0"
   },

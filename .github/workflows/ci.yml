@@ -31,6 +31,13 @@ jobs:
       - run: npm run audit:dependencies
       - run: npm run audit:signatures
       - run: npm pack --dry-run
+      - name: Preserve the tested release archive
+        run: mkdir artifact && npm pack --ignore-scripts --pack-destination artifact
+      - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
+        with:
+          name: npm-package
+          path: artifact/*.tgz
+          if-no-files-found: error
 
   runtime:
     name: Node ${{ matrix.node }}
