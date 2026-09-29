@@ -4,7 +4,7 @@
     {
       "name": "@stackline/combine-source-map",
       "path": "README.md",
-      "version": "1.0.4",
+      "version": "1.0.5",
       "baselineVersion": "1.0.3",
       "keywords": [
         "stackline",
@@ -24,8 +24,8 @@
       "homepage": "https://alexandro.net/docs/vanilla/combine-source-map/",
       "baselineTarball": "https://registry.npmjs.org/@stackline/combine-source-map/-/combine-source-map-1.0.3.tgz",
       "baselineIntegrity": "sha512-CEwcyGo4mtA+vseg3+7x1tTTb0E0ZEo56XfA/TbNG62OM6Z1NCoonD75W5z+KH6OaA1piK/Tx5iVP4y4wKkCYg==",
-      "expectedSha512": "e6143894d4990b690e16afb04d6e557454df812ca56c986aa666f3a02b7f98af1769babf40f71fdde2c4ba6e6dae24dd6cdb3bb959a202c78d714ea69f443952",
-      "tag": "docs-stackline-combine-source-map-v1.0.4"
+      "expectedSha512": "5263fe44aaba30eba367405eed6c6d49b9efe6f2206c7b93e9de00758212a5dc09b9e236faf758f92944b08d95aecaaee4e393df5c321cdc30f92a8122d3d33c",
+      "tag": "docs-stackline-combine-source-map-v1.0.5"
     }
   ]
 }
