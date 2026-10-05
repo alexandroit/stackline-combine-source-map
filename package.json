@@ -123,8 +123,8 @@
     "c8": "12.0.0",
     "combine-source-map": "0.8.0",
     "esbuild": "0.28.2",
-    "eslint": "10.9.1",
-    "publint": "0.3.24",
+    "eslint": "10.11.0",
+    "publint": "0.3.25",
     "typescript": "7.0.2"
   }
 }
